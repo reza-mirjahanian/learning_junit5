@@ -11,6 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.CountDownLatch;
 import org.junit.jupiter.api.Test;
+
+
+//Preemptive Timeouts with assertTimeoutPreemptively()
+//        The various assertTimeoutPreemptively() methods in the Assertions class execute the provided executable or supplier in a different thread than that of the calling code. This behavior can lead to undesirable side effects if the code that is executed within the executable or supplier relies on java.lang.ThreadLocal storage.
+//
+//        One common example of this is the transactional testing support in the Spring Framework. Specifically, Spring’s testing support binds transaction state to the current thread (via a ThreadLocal) before a test method is invoked. Consequently, if an executable or supplier provided to assertTimeoutPreemptively() invokes Spring-managed components that participate in transactions, any actions taken by those components will not be rolled back with the test-managed transaction. On the contrary, such actions will be committed to the persistent store (e.g., relational database) even though the test-managed transaction is rolled back.
+//
+//        Similar side effects may be encountered with other frameworks that rely on ThreadLocal storage.
+
+//third-party assertion libraries such as AssertJ, Hamcrest, Truth,
 public class AssertionsTests {
     private final Calculator calculator = new Calculator();
 
