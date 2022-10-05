@@ -1,6 +1,18 @@
 # Learning Junit 5
 
 
+### Test Execution Order
+By default, test classes and methods will be ordered using an algorithm that is deterministic but intentionally nonobvious. This ensures that subsequent runs of a test suite execute test classes and test methods in the same order, thereby allowing for repeatable builds.
+
+You may wish to execute test classes in a random order to ensure there are no accidental dependencies between test classes, or you may wish to order test classes to optimize build time as outlined in the following scenarios.
+
+-   Run previously failing tests and faster tests first: "fail fast" mode
+
+-   With parallel execution enabled, run longer tests first: "shortest test plan execution duration" mode
+
+-   Various other use cases
+
+### assume vs assert
 You would use  `assume`  if you have circumstances under which some tests should not run at all. "Not run" means that it cannot fail, because, well, it did not run.
 
 You would use  `assert`  to fail a test if something goes wrong.
