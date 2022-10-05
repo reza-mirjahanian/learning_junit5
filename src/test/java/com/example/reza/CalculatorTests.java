@@ -1,5 +1,5 @@
 
-package com.example.project;
+package com.example.reza;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
